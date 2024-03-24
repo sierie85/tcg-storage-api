@@ -18,7 +18,7 @@ class CardGame
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\Column(length: 2000)]
+    #[ORM\Column(length: 2000, nullable: true)]
     private ?string $back_cover_image = null;
 
     #[ORM\OneToMany(targetEntity: Card::class, mappedBy: 'CardGame')]
