@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\CardRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: CardRepository::class)]
 class Card
@@ -15,24 +16,34 @@ class Card
     private ?int $id = null;
 
     #[ORM\Column(type: Types::SMALLINT)]
+    #[Assert\NotBlank]
     private ?int $collector_number = null;
 
     #[ORM\Column(length: 100)]
+    #[Assert\NotBlank]
     private ?string $name = null;
 
     #[ORM\Column(length: 350)]
+    #[Assert\NotBlank]
     private ?string $description = null;
 
     #[ORM\Column(type: Types::SMALLINT)]
+    #[Assert\NotBlank]
+    #[Assert\Positive]
     private ?int $cost = null;
 
     #[ORM\Column(type: Types::SMALLINT)]
+    #[Assert\NotBlank]
+    #[Assert\Positive]
     private ?int $attack = null;
 
     #[ORM\Column(type: Types::SMALLINT)]
+    #[Assert\NotBlank]
+    #[Assert\Positive]
     private ?int $defense = null;
 
     #[ORM\Column(length: 2000)]
+    #[Assert\NotBlank]
     private ?string $image = null;
 
     #[ORM\Column(length: 2000, nullable: true)]

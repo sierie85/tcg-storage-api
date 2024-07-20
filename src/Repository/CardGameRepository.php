@@ -21,6 +21,30 @@ class CardGameRepository extends ServiceEntityRepository
         parent::__construct($registry, CardGame::class);
     }
 
+    /**
+     * Save a CardGame entity
+     *
+     * @param CardGame $entity
+     */
+    public function save(CardGame $entity): void
+    {
+        $em = $this->getEntityManager();
+        $em->persist($entity);
+        $em->flush();
+    }
+
+    /**
+     * Remove a CardGame entity
+     *
+     * @param CardGame $entity
+     */
+    public function remove(CardGame $entity): void
+    {
+        $em = $this->getEntityManager();
+        $em->remove($entity);
+        $em->flush();
+    }
+
     //    /**
     //     * @return CardGame[] Returns an array of CardGame objects
     //     */

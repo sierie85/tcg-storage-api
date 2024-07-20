@@ -21,6 +21,30 @@ class CardRepository extends ServiceEntityRepository
         parent::__construct($registry, Card::class);
     }
 
+    /**
+     * Save a Card entity
+     *
+     * @param Card $entity
+     */
+    public function save(Card $entity): void
+    {
+        $em = $this->getEntityManager();
+        $em->persist($entity);
+        $em->flush();
+    }
+
+    /**
+     * Remove a Card entity
+     *
+     * @param Card $entity
+     */
+    public function remove(Card $entity): void
+    {
+        $em = $this->getEntityManager();
+        $em->remove($entity);
+        $em->flush();
+    }
+
     //    /**
     //     * @return Card[] Returns an array of Card objects
     //     */

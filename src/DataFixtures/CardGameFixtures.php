@@ -9,7 +9,7 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
 
-class CardGameSeeder extends Fixture
+class CardGameFixtures extends Fixture
 {
     protected $faker;
     /**
@@ -23,6 +23,7 @@ class CardGameSeeder extends Fixture
 
         $cardGame = new CardGame();
         $cardGame->setName($this->faker->name());
+        $cardGame->setBackCoverImage('http://localhost:8000/images/tcg_cover_back.jpg');
 
         $manager->persist($cardGame);
 
